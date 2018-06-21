@@ -9,6 +9,12 @@ contact: sunx0486@umn.edu
 Created: 06/21/2018
 Last updated: 06/21/2018
 
+# File Descriptions:
+    1. Trial_1_plan_KS.plan, Trial_2_plan_KS.plan, Trial_3_plan_KS.plan are example files generated from Qgroundcontrol.
+    2. base.xml and base_initialization.xml are bases for generating output.xml and initialization file
+    3. json2xml.py creates standalone JSBsim executable xml file
+    4. json2xml_init.py creates an initialization file for the output.xml 
+    
 # Required Software:
 The following softwares are required:
 
