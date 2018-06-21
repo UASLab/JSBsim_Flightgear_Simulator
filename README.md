@@ -1,11 +1,17 @@
 # JSBsim_Flightgear_Simulator
 
 Objective: Enable users to create a mission from Qgroundcontrol and output an executable xml file for JSBsim
+
+In other words, you can create a mission (waypoints and altitude), and have your plane to go through those points in space, and generate the associated variables (position, velocity, attitude, etc) 
+
+Author: Kerry Sun
+contact: sunx0486@umn.edu 
 Created: 06/21/2018
 Last updated: 06/21/2018
 
 # Required Software:
 The following softwares are required:
+
     1. Qgroundcontrol ( http://qgroundcontrol.com/ )
     2. JSBsim ( http://jsbsim.sourceforge.net/)
     3. FlightGear ( http://home.flightgear.org/ )
@@ -41,3 +47,14 @@ The following softwares are required:
        then you can enter the following command to start the simulation:
        
        jsbsim $ ./build_linux/src/JSBSim --script=scripts/output.xml --realtime --logdirectivefile=data_output/flightgear.xml
+
+The end result is similar to the one done by https://github.com/jmcanana/JGM_PLANS_2018.git
+
+
+# Ongoing work
+  1. Include GNSS/INS model 
+  2. Include air data model (five hole probe, angle vanes, pitot tube)
+  3. Integrate all of those to make it user-friendly 
+  
+  
+  
