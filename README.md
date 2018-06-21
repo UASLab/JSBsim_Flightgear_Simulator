@@ -5,8 +5,11 @@ Objective: Enable users to create a mission from Qgroundcontrol and output an ex
 In other words, you can create a mission (waypoints and altitude), and have your plane to go through those points in space, and generate the associated variables (position, velocity, attitude, etc) 
 
 Author: Kerry Sun
+
 contact: sunx0486@umn.edu 
+
 Created: 06/21/2018
+
 Last updated: 06/21/2018
 
 # File Descriptions:
