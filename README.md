@@ -64,6 +64,6 @@ The end result is similar to the one done by https://github.com/jmcanana/JGM_PLA
   1. Include GNSS/INS model 
   2. Include air data model (five hole probe, angle vanes, pitot tube)
   3. Integrate all of those to make it user-friendly 
-  
+  4. Include the UAV in our lab and build controllers for it 
   
   
