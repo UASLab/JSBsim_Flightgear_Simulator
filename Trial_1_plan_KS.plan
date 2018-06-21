@@ -1,0 +1,157 @@
+{
+    "fileType": "Plan",
+    "geoFence": {
+    },
+    "groundStation": "QGroundControl",
+    "mission": {
+        "cruiseSpeed": 15,
+        "firmwareType": 12,
+        "hoverSpeed": 16,
+        "items": [
+            {
+                "autoContinue": true,
+                "command": 530,
+                "doJumpId": 1,
+                "frame": 2,
+                "params": [
+                    0,
+                    2,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                ],
+                "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+                "command": 178,
+                "doJumpId": 2,
+                "frame": 2,
+                "params": [
+                    0,
+                    16,
+                    -1,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+                "command": 22,
+                "doJumpId": 3,
+                "frame": 3,
+                "params": [
+                    15,
+                    0,
+                    0,
+                    null,
+                    44.726104257605215,
+                    -93.07861004109377,
+                    50
+                ],
+                "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+                "command": 16,
+                "doJumpId": 4,
+                "frame": 3,
+                "params": [
+                    0,
+                    0,
+                    0,
+                    null,
+                    44.726104794053825,
+                    -93.08005399997619,
+                    50
+                ],
+                "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+                "command": 16,
+                "doJumpId": 5,
+                "frame": 3,
+                "params": [
+                    0,
+                    0,
+                    0,
+                    null,
+                    44.72718313049818,
+                    -93.0800453279802,
+                    50
+                ],
+                "type": "SimpleItem"
+            },
+            {
+                "autoContinue": true,
+                "command": 16,
+                "doJumpId": 6,
+                "frame": 3,
+                "params": [
+                    0,
+                    0,
+                    0,
+                    null,
+                    44.72718929252757,
+                    -93.07807656300064,
+                    50
+                ],
+                "type": "SimpleItem"
+            },
+            {
+                "complexItemType": "fwLandingPattern",
+                "landAltitudeRelative": true,
+                "landCoordinate": [
+                    44.72579502837068,
+                    -93.07675487510953,
+                    0
+                ],
+                "loiterAltitudeRelative": true,
+                "loiterClockwise": true,
+                "loiterCoordinate": [
+                    44.72674840752471,
+                    -93.07339448308105,
+                    40
+                ],
+                "loiterRadius": 75,
+                "type": "ComplexItem",
+                "version": 1
+            },
+            {
+                "autoContinue": true,
+                "command": 20,
+                "doJumpId": 10,
+                "frame": 2,
+                "params": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "type": "SimpleItem"
+            }
+        ],
+        "plannedHomePosition": [
+            44.72611403546755,
+            -93.07807655911938,
+            0
+        ],
+        "vehicleType": 1,
+        "version": 2
+    },
+    "rallyPoints": {
+        "points": [
+        ],
+        "version": 1
+    },
+    "version": 1
+}

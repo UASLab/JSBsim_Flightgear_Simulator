@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://jsbsim.sf.net/JSBSimScript.xsl"?>
+<runscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://jsbsim.sf.net/JSBSimScript.xsd"
+    name="C310-01A takeoff run">
+    
+  <description>For testing autopilot capability</description>
+  <use aircraft="c310" initialize="ellington"/>
+  
+  <run start="0.0" end="3600" dt="0.02">
+  
+    <event name="Start engine">
+      <description>
+        Start engine and set initial heading and waypoints, turn on heading-hold mode.
+      </description>
+      <condition>simulation/sim-time-sec  ge  0.25</condition>
+      <set name="fcs/mixture-cmd-norm[0]" value="1"/>
+      <set name="fcs/mixture-cmd-norm[1]" value="1"/>
+      <set name="fcs/advance-cmd-norm[0]" value="1.0"/>
+      <set name="fcs/advance-cmd-norm[1]" value="1.0"/>
+      <set name="propulsion/magneto_cmd" value="3"/>
+      <set name="fcs/throttle-cmd-norm[0]" value="1.0"/>
+      <set name="fcs/throttle-cmd-norm[1]" value="1.0"/>
+      <set name="propulsion/starter_cmd" value="1"/>
+      <set name="ap/altitude_setpoint" action="FG_EXP" value="1000.0" tc="10.0"/>
+      <set name="ap/attitude_hold" value="0"/>
+      <set name="guidance/target_wp_latitude_rad" value="0.517238"/>
+      <set name="guidance/target_wp_longitude_rad" value="-1.662727"/>
+      <set name="ap/heading_setpoint" value="0"/>
+      <set name="ap/heading-setpoint-select" value="0"/>
+      <set name="ap/heading_hold" value="1"/>
+      <set name="ap/active-waypoint" value="0"/>
+      <notify format="kml">
+        <property caption="Latitude       "> position/lat-geod-deg </property>
+        <property caption="Longitude      "> position/long-gc-deg </property>
+        <property caption="Airspeed (keas)"> velocities/ve-kts </property>
+		<property caption="Altitude       "> position/h-agl-ft </property>
+      </notify>
+    </event>
+    
+    <event name="Set altitude for 1,000 ft.">
+      <condition>velocities/vc-fps ge 145.0</condition>
+      <set name="ap/altitude_hold" value="1"/>
+      <notify format="kml">
+        <property caption="Latitude       "> position/lat-geod-deg </property>
+        <property caption="Longitude      "> position/long-gc-deg </property>
+        <property caption="Airspeed (keas)"> velocities/ve-kts </property>
+		<property caption="Altitude       "> position/h-agl-ft </property>
+      </notify>
+    </event>
+    
+    <event name="Raise landing gear">
+      <condition>position/h-agl-ft  ge  40</condition>
+      <set name="gear/gear-cmd-norm" value="0"/>
+      <notify format="kml">
+        <property caption="Latitude       "> position/lat-geod-deg </property>
+        <property caption="Longitude      "> position/long-gc-deg </property>
+        <property caption="Airspeed (keas)"> velocities/ve-kts </property>
+		<property caption="Altitude       "> position/h-agl-ft </property>
+      </notify>
+    </event>
+    
+    <event name="Head to first waypoint">
+      <description>
+        Set heading hold to selected waypoint (setpoint) instead of
+        previously specified heading when altitude surpasses 800 feet.
+      </description>
+      <condition>position/h-agl-ft  ge  800</condition>
+      <set name="ap/heading-setpoint-select" value="1"/>
+      <set name="ap/active-waypoint" value="1"/>
+      <set name="ap/altitude_hold" value="1"/>
+	  <set name="ap/altitude_setpoint" value="1000.0"/>
+      <notify format="kml">
+        <property caption="Latitude        "> position/lat-geod-deg </property>
+        <property caption="Longitude       "> position/long-gc-deg  </property>
+        <property caption="Airspeed (keas) "> velocities/ve-kts     </property>
+        <property caption="WP  "> guidance/target_wp_latitude_rad  </property>
+        <property caption="WP  "> guidance/target_wp_longitude_rad  </property>
+        <property caption="Distance to WP  "> guidance/wp-distance  </property>
+		<property caption="Altitude        "> position/h-agl-ft </property>
+
+      </notify>
+    </event>
+    
+    <event name="Terminate">
+      <description>
+        When the aircraft arrives back at Ellington Field (fifth waypoint)
+        then terminate the simulation.
+      </description>
+      <condition>
+        guidance/wp-distance lt 100
+        ap/active-waypoint eq 5
+      </condition>
+      <set name="simulation/terminate" value="1"/>
+      <notify format="kml">
+        <property caption="Latitude       "> position/lat-geod-deg </property>
+        <property caption="Longitude      "> position/long-gc-deg </property>
+        <property caption="Airspeed (keas)"> velocities/ve-kts </property>
+		<property caption="Altitude       "> position/h-agl-ft </property>
+        <property caption="Distance to WP  "> guidance/wp-distance  </property>
+        <property caption="WP  "> guidance/target_wp_latitude_rad  </property>
+        <property caption="WP  "> guidance/target_wp_longitude_rad  </property>
+      </notify>
+    </event>
+    
+
+  </run>
+</runscript>
